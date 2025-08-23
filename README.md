@@ -40,7 +40,7 @@ _A modern, cross-platform movie discovery app built with React Native and Expo_
 
 ### Prerequisites
 
-- Node.js (v16 or higher)
+- Node.js (v20)
 - npm or yarn
 - Expo CLI
 - iOS Simulator (for iOS development)
