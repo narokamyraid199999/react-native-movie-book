@@ -17,6 +17,10 @@ export default function Index() {
     error: moviesError,
   } = useFetch(() => fetchMovies({ query: "" }));
 
+  const { data: topRatedMovies } = useFetch(() =>
+    fetchMovies({ query: "top" })
+  );
+
   return (
     <SafeAreaView className="flex-1 ">
       <View className="flex-1 bg-primary">
@@ -73,7 +77,10 @@ export default function Index() {
                 <Text className="text-white text-lg mb-3 font-bold">
                   Latest Movies
                 </Text>
-                <MovieFlatList horizontal={false} movies={movies || []} />
+                <MovieFlatList
+                  horizontal={false}
+                  movies={topRatedMovies || []}
+                />
               </View>
             </View>
           )}
