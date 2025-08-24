@@ -22,7 +22,7 @@ const SearchBar = ({ onPress, fromHome, placeholder }: props) => {
         tintColor="#ab8bff"
       />
       {fromHome ? (
-        <Text className="flex-1 text-[#ab8bff] ml-2">{placeholder}</Text>
+        <Text className="flex-1 text-[#A8B5DB] ml-2">{placeholder}</Text>
       ) : (
         <TextInput
           placeholder={placeholder}

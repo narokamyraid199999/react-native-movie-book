@@ -1,18 +1,11 @@
-import MovieCard from "@/components/MovieCard";
+import MovieFlatList from "@/components/MovieFlatList";
 import SearchBar from "@/components/SearchBar";
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
 import { fetchMovies } from "@/services/api";
 import useFetch from "@/services/useFetch";
 import { useRouter } from "expo-router";
-import {
-  ActivityIndicator,
-  FlatList,
-  Image,
-  ScrollView,
-  Text,
-  View,
-} from "react-native";
+import { ActivityIndicator, Image, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
@@ -51,13 +44,14 @@ export default function Index() {
               <SearchBar
                 onPress={() => router.push("/search")}
                 fromHome={true}
-                placeholder="Search for a movie"
+                placeholder="Search through 300+ movies online"
               />
-              <View className="mt-5">
+              <View className="mt-10">
                 <Text className="text-white text-lg mb-3 font-bold">
                   Popular Movies
                 </Text>
-                <FlatList
+                <MovieFlatList horizontal={true} movies={movies || []} />
+                {/* <FlatList
                   data={movies}
                   renderItem={({ index, item }) => (
                     <MovieCard
@@ -72,7 +66,14 @@ export default function Index() {
                   initialNumToRender={3}
                   showsHorizontalScrollIndicator={false}
                   ItemSeparatorComponent={() => <View style={{ width: 15 }} />}
-                />
+                /> */}
+              </View>
+
+              <View className="mt-10">
+                <Text className="text-white text-lg mb-3 font-bold">
+                  Latest Movies
+                </Text>
+                <MovieFlatList horizontal={false} movies={movies || []} />
               </View>
             </View>
           )}
