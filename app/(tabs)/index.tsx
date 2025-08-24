@@ -29,13 +29,13 @@ export default function Index() {
           className="flex-1 px-5"
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{
-            paddingBottom: 10,
+            paddingBottom: 70,
           }}
         >
           <Image source={icons.logo} className="w-12 h-10 mt-20 mb-5 mx-auto" />
           {moviesLoading ? (
             <ActivityIndicator
-              color="#0000ff"
+              color="#AB8BFF"
               size="large"
               className="mt-10 self-center"
             />

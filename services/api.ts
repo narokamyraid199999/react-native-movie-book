@@ -30,7 +30,7 @@ export const fetchMovies = async ({
   await new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(true);
-    }, 1000);
+    }, 500);
   });
 
   return data.results;
@@ -51,6 +51,12 @@ export const fetchMovieDetails = async (
     if (!response.ok) {
       throw new Error(`Failed to fetch movie details: ${response.statusText}`);
     }
+
+    await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(true);
+      }, 500);
+    });
 
     const data = await response.json();
     return data;
