@@ -69,6 +69,7 @@ export default function Index() {
                   keyExtractor={(item) => item.id.toString()}
                   className="mt-2 pb-32"
                   horizontal={true}
+                  initialNumToRender={3}
                   showsHorizontalScrollIndicator={false}
                   ItemSeparatorComponent={() => <View style={{ width: 15 }} />}
                 />

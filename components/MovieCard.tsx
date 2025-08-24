@@ -1,7 +1,8 @@
 import { icons } from "@/constants/icons";
 import { BlurView } from "expo-blur";
+import { Image } from "expo-image";
 import { Link } from "expo-router";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 
 export default function MovieCard({
   movie,
@@ -16,7 +17,7 @@ export default function MovieCard({
 }) {
   return (
     <Link href={`/movies/${movie.id}`} asChild>
-      <TouchableOpacity className="w-[133px]">
+      <TouchableOpacity className="w-[116px]">
         <View className="relative">
           <Image
             source={{
@@ -24,8 +25,12 @@ export default function MovieCard({
                 ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
                 : "https://placehold.co/600x400/1a1a1a/ffffff.png",
             }}
-            className="w-full h-52 rounded-md"
-            resizeMode="cover"
+            style={{
+              width: "100%",
+              height: 167,
+              borderRadius: 8,
+            }}
+            contentFit="cover"
           ></Image>
           {showCounter && (
             <Text className=" text-white absolute -bottom-1.5 -left-1.5 text-5xl font-bold">
@@ -38,7 +43,7 @@ export default function MovieCard({
               tint="dark"
               className="flex-row items-center justify-start gap-x-1   p-2"
             >
-              <Image source={icons.star} className="size-4" />
+              <Image source={icons.star} style={{ width: 16, height: 16 }} />
               <Text className="text-white text-xs font-bold">
                 {Math.round(movie.vote_average / 2)}
               </Text>
@@ -51,7 +56,7 @@ export default function MovieCard({
 
         {showBlurRating && (
           <View className="flex-row items-center justify-start gap-x-1">
-            <Image source={icons.star} className="size-4" />
+            <Image source={icons.star} style={{ width: 16, height: 16 }} />
             <Text className="text-white text-xs font-bold">
               {Math.round(movie.vote_average / 2)}
             </Text>
